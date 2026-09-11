@@ -54,7 +54,7 @@ public class Gra {
         }
 
     }
-    public LinkedList<Integer> zwroctrafione(){
+    private LinkedList<Integer> zwroctrafione(){
         LinkedList<Integer> trafione = new LinkedList<>();
         for (Integer wylosowane:wylosowane){
             if(wpisane.contains(wylosowane)){
@@ -63,5 +63,14 @@ public class Gra {
 
         }
         return trafione;
+    }
+    public LinkedList<Integer> zagraj(){
+
+        wpiszliczby();
+        System.out.println("wpisane: " + wpisane);
+        System.out.println("wlosowane: " + wylosowane);
+        System.out.println("trafione: " + zwroctrafione());
+
+        return zwroctrafione();
     }
 }
