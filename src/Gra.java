@@ -1,19 +1,13 @@
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Random;
+import java.util.*;
 
 public class Gra {
     private static HashSet<Integer> wylosowane;
 
-    public static HashSet<Integer> getWylosowane() {
-        return wylosowane;
-    }
+
 
     private ArrayList<Integer> wpisane;
 
-    public ArrayList<Integer> getWpisane() {
-        return wpisane;
-    }
+
 
     public Gra() {
         if (wylosowane == null){
@@ -37,5 +31,37 @@ public class Gra {
         while (wylosowane.size() != 6){
             wylosowane.add(random.nextInt(1,50));
         }
+    }
+    public static HashSet<Integer> getWylosowane() {
+        return wylosowane;
+    }
+    public ArrayList<Integer> getWpisane() {
+        return wpisane;
+    }
+
+    public void wpiszliczby(){
+        Scanner scanner = new Scanner(System.in);
+        wpisane = new ArrayList<>();
+        int liczba;
+        for (int i = 0; i < 6; i++) {
+            System.out.println("Podaj liczbe " +  (i + 1));
+            liczba = scanner.nextInt();
+            while (wpisane.contains(liczba)){
+                System.out.println("Taka liczba juz byla podaj inna");
+                liczba = scanner.nextInt();;
+            }
+            wpisane.add(liczba);
+        }
+
+    }
+    public LinkedList<Integer> zwroctrafione(){
+        LinkedList<Integer> trafione = new LinkedList<>();
+        for (Integer wylosowane:wylosowane){
+            if(wpisane.contains(wylosowane)){
+                trafione.add(wylosowane);
+            }
+
+        }
+        return trafione;
     }
 }
